@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="738.0" prefWidth="1304.0" style="-fx-background-color: #181717;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.POSController">
+   <children>
+      <Pane prefHeight="25.0" prefWidth="1304.0" />
+      <HBox prefHeight="673.0" prefWidth="1304.0" spacing="60.0" stylesheets="@../styles/style.css">
+         <children>
+            <HBox prefHeight="674.0" prefWidth="816.0" style="-fx-background-color: #202225;">
+               <children>
+                  <VBox prefHeight="687.0" prefWidth="816.0" stylesheets="@../styles/style.css">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="45.0" prefWidth="463.0" style="-fx-border-radius: 50; -fx-border-color: #D7D7D7;">
+                                 <children>
+                                    <Button fx:id="searchBtn" mnemonicParsing="false" onAction="#onButtonAction" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8-search-500.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <TextField fx:id="searchBar" prefHeight="25.0" prefWidth="423.0" style="-fx-background-color: transparent;" styleClass="searchBar" stylesheets="@../styles/style.css" text="Search item" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="100.0" prefWidth="24.0" />
+                           </children>
+                        </HBox>
+                        <ScrollPane prefHeight="485.0" prefWidth="830.0">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                           <content>
+                              <TableView fx:id="SearchItemTV" prefHeight="487.0" prefWidth="760.0">
+                                <columns>
+                                  <TableColumn fx:id="ItemIDCol" prefWidth="49.0" text="ItemID" />
+                                  <TableColumn fx:id="ItemBrandCol" prefWidth="74.0" text="ItemBrand" />
+                                    <TableColumn fx:id="ItemNameCol" prefWidth="94.0" text="ItemName" />
+                                    <TableColumn fx:id="CategoriesCol" prefWidth="86.0" text="Categories" />
+                                    <TableColumn fx:id="DescriptionCol" minWidth="0.0" prefWidth="112.0" text="Description" />
+                                    <TableColumn fx:id="SRPCol" minWidth="0.0" prefWidth="70.0" text="SRP" />
+                                    <TableColumn fx:id="ClearancePriceCol" minWidth="0.0" prefWidth="98.0" text="Clearance Price" />
+                                    <TableColumn fx:id="QuantityCol" minWidth="0.0" prefWidth="61.0" text="Quantity" />
+                                    <TableColumn fx:id="ButtonCol" minWidth="0.0" prefWidth="94.0" text="Buttons" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </HBox>
+            <VBox prefHeight="674.0" prefWidth="403.0" styleClass="changePass" stylesheets="@../styles/style.css">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+               <children>
+                  <Pane prefHeight="56.0" prefWidth="403.0" />
+                  <ScrollPane prefHeight="345.0" prefWidth="403.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                     <content>
+                        <TableView fx:id="cartListTV" prefHeight="326.0" prefWidth="382.0">
+                          <columns>
+                            <TableColumn fx:id="brandCol" prefWidth="75.0" text="Brand" />
+                            <TableColumn fx:id="nameCol" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="priceCol" prefWidth="75.0" text="Description" />
+                              <TableColumn fx:id="qttyCol" prefWidth="75.0" text="Quantity" />
+                              <TableColumn fx:id="descCol" prefWidth="75.0" text="Price" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="checkoutBTn" mnemonicParsing="false" onAction="#onButtonAction" prefHeight="54.0" prefWidth="373.0" text="Checkout">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Pane prefHeight="0.0" prefWidth="1304.0" />
+   </children>
+</VBox>
