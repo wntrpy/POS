@@ -3,6 +3,7 @@ package Controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,10 +15,12 @@ import application.DBImageHandler;
 import application.NXTVMain;
 import application.sceneSwitch;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 
-public class MainFrameController{
+public class MainFrameController implements Initializable{
     @FXML private BorderPane borderPane;
     @FXML private Button dashboardBtn;
     @FXML private AnchorPane detailsCard;
@@ -44,6 +47,34 @@ public class MainFrameController{
 
     private boolean cardVisible = true;
 
+    
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+    	setCenterScenes("/FXML/Dashboard.fxml");
+
+        DBImageHandler.setUserPhoto(NXTVMain.localLog.getUserID(), "D:\\javaFXProjects\\NXTVVapeLounge\\src\\main\\resources\\org\\example\\nxtvvapelounge\\images\\hanni.png");
+
+        try { //try catch in case na magkaproblem sa pagseset ng data sa labels
+            System.out.println(NXTVMain.localLog.getFirstName());
+            System.out.println(NXTVMain.localLog.getFirstName() + " " + NXTVMain.localLog.getMiddleName().charAt(0) + ". " + NXTVMain.localLog.getLastName());
+            System.out.println(NXTVMain.localLog.getUserType());
+
+            userName.setText(NXTVMain.localLog.getFirstName());
+            fullNameLbl.setWrapText(true);
+            fullNameLbl.setText(NXTVMain.localLog.getFirstName() + " " + NXTVMain.localLog.getMiddleName().charAt(0) + ". " + NXTVMain.localLog.getLastName());
+            userTypeLbl.setText(NXTVMain.localLog.getUserType());
+            imgPic.setImage(DBImageHandler.getUserPhoto(NXTVMain.localLog.getUserID()));
+            cardUserPic.setImage(DBImageHandler.getUserPhoto(NXTVMain.localLog.getUserID()));
+
+            dashboardBtn.getStyleClass().add("bold-button");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+	}
+    
+    
     @FXML
     private void handleButtonAction(ActionEvent e) throws Exception{
         if (e.getSource() == imgBtn) {
@@ -52,6 +83,7 @@ public class MainFrameController{
             cardVisible = !cardVisible;
             detailsCard.setVisible(cardVisible);
             detailsCard.toFront();
+         
             //detailsCard.
 
             if (!borderPane.getChildren().contains(detailsCard)) {
@@ -80,31 +112,7 @@ public class MainFrameController{
         System.out.println("Dashboard");
     }
 
-    @FXML //ito yung unang niloload as in default
-    void btnDashboardDefault(ActionEvent event) throws IOException {
-        setCenterScenes("/FXML/Dashboard.fxml");
-
-        DBImageHandler.setUserPhoto(NXTVMain.localLog.getUserID(), "D:\\javaFXProjects\\NXTVVapeLounge\\src\\main\\resources\\org\\example\\nxtvvapelounge\\images\\hanni.png");
-
-        try { //try catch in case na magkaproblem sa pagseset ng data sa labels
-            System.out.println(NXTVMain.localLog.getFirstName());
-            System.out.println(NXTVMain.localLog.getFirstName() + " " + NXTVMain.localLog.getMiddleName().charAt(0) + ". " + NXTVMain.localLog.getLastName());
-            System.out.println(NXTVMain.localLog.getUserType());
-
-            userName.setText(NXTVMain.localLog.getFirstName());
-            fullNameLbl.setWrapText(true);
-            fullNameLbl.setText(NXTVMain.localLog.getFirstName() + " " + NXTVMain.localLog.getMiddleName().charAt(0) + ". " + NXTVMain.localLog.getLastName());
-            userTypeLbl.setText(NXTVMain.localLog.getUserType());
-            imgPic.setImage(DBImageHandler.getUserPhoto(NXTVMain.localLog.getUserID()));
-            cardUserPic.setImage(DBImageHandler.getUserPhoto(NXTVMain.localLog.getUserID()));
-
-            dashboardBtn.getStyleClass().add("bold-button");
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-
-    }
+    
     //TODO: ipasok mo nalang sa initialize method to lahat!
 
 
@@ -131,6 +139,9 @@ public class MainFrameController{
             e.printStackTrace();
         }
     }
+
+
+	
 
 }//end of class
 //TODO: pano ung sa summary, need ma load un sa center ng border pane hahaha

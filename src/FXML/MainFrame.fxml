@@ -254,7 +254,7 @@
             <HBox prefHeight="314.0" prefWidth="1304.0">
                <children>
                   <Pane prefHeight="314.0" prefWidth="1241.0" />
-                  <AnchorPane fx:id="detailsCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="244.0" styleClass="detailsCard" stylesheets="@../Styles/style.css" AnchorPane.rightAnchor="-250.0" AnchorPane.topAnchor="100.0">
+                  <AnchorPane fx:id="detailsCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="244.0" styleClass="detailsCard" stylesheets="@../Styles/style.css" visible="false" AnchorPane.rightAnchor="-250.0" AnchorPane.topAnchor="100.0">
                      <children>
                         <VBox fx:id="vboxIcons" layoutX="14.0" layoutY="14.0" prefHeight="264.0" prefWidth="62.0" spacing="30.0">
                            <children>

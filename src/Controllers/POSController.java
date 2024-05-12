@@ -31,6 +31,9 @@ import application.NXTVMain;
 import application.sceneSwitch;
 
 
+//git push -u origin main
+
+
 public class POSController implements Initializable {
     @FXML private TextField searchBar;
     @FXML private Button searchBtn;
@@ -70,10 +73,9 @@ public class POSController implements Initializable {
                     .prepareStatement(
                             "SELECT ItemID, ItemBrand, ItemName, Categories, "
                                     + "DescriptionAndValues, SuggestedRetailPrice, ClearancePrice, Quantity "
-                                    + "FROM Retail_Inventory_ALL "
-                                    + "WHERE BranchID = ?");
+                                    + "FROM Retail_Inventory_ALL ");
 
-            loadItem.setString(1, NXTVMain.branchID);
+           // loadItem.setString(1, NXTVMain.branchID);
 
             ResultSet type = loadItem.executeQuery();
             // FXMLLoader itemLoader = new FXMLLoader(getClass().getResource("/GUIfxml/ItemNode.fxml"));

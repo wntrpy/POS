@@ -65,10 +65,10 @@ public class LoginController {
                 NXTVMain.stage.setTitle("MAIN FRAME");
                 NXTVMain.stage.show();
 
-                MainFrameController m = new MainFrameController();
+               // MainFrameController m = new MainFrameController();
                 // kinukuha yung controller na associated dun sa fxml file na yon
-                 m = fxmlLoader.getController();
-                m.btnDashboardDefault(e); //pinasa ko ung event kase pagkaclick ng login button, dat naka load na den yyung dashboard kasi yyun ung default screen
+                 //m = fxmlLoader.getController();
+               // m.btnDashboardDefault(e); //pinasa ko ung event kase pagkaclick ng login button, dat naka load na den yyung dashboard kasi yyun ung default screen
 
             }
 
