@@ -62,17 +62,9 @@ public class POSController implements Initializable {
     @FXML private TableColumn<AddToCartItems, String> addToCartPriceCol;
     @FXML private TableView<AddToCartItems> cartListTV;
     //END OF RIGHT ITEMS
-
-
- 
-
-   public static List<AddToCartItems> listOfItems;
-   
-   //public List<AddToCartItems> clickedItems = new ArrayList<>(); //list of add to carts
-   
+    
    public ObservableList<AddToCartItems> clickedItems = FXCollections.observableArrayList();
-
-
+    
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
        showDefault(); //calls lang ung showDeault since nandon lahat ng need para sa initial na itsura ng POS
