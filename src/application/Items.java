@@ -26,6 +26,11 @@ public class Items {
 
     }
 
+    
+    
+    
+    //GETTERS since pag walang getters dito, di ma reretrieve yung data from POS Controller
+    //Need ni PropretyValueFactory ung getters ng kada Variables para ma akses 
     public Button getAddToCartBtn() {
         return AddToCartBtn;
     }

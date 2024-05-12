@@ -2,7 +2,37 @@ package application;
 
 public class AddToCartItems {
 
-    public String name;
+	//again need ng GETTERS para sa PropretyValueFactory 
+    public String getName() {
+		return name;
+	}
+
+
+	public String getBrand() {
+		return brand;
+	}
+
+
+	public String getItemDescription() {
+		return itemDescription;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+
+	public String getPrice() {
+		return price;
+	}
+
+
+	public String getQuantity() {
+		return quantity;
+	}
+
+
+	public String name;
     public String brand;
     public String itemDescription;
     public String category;

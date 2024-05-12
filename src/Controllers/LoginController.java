@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import Controllers.MainFrameController;
 import application.Login;
 import application.NXTVMain;
+import application.sceneSwitch;
 
 public class LoginController {
 
@@ -57,19 +58,10 @@ public class LoginController {
                 // we in boiiisss
                 System.out.println("DITO YUNG MAIN FRAME");
 
-
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/MainFrame.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
-                NXTVMain.stage.setScene(scene);
-               NXTVMain.stage.setResizable(true);
-                NXTVMain.stage.setTitle("MAIN FRAME");
-                NXTVMain.stage.show();
-
-               // MainFrameController m = new MainFrameController();
-                // kinukuha yung controller na associated dun sa fxml file na yon
-                 //m = fxmlLoader.getController();
-               // m.btnDashboardDefault(e); //pinasa ko ung event kase pagkaclick ng login button, dat naka load na den yyung dashboard kasi yyun ung default screen
-
+                sceneSwitch switcher = new sceneSwitch();
+                switcher.setFxmlFile("/FXML/MainFrame.fxml");
+                switcher.switchScenes();
+              
             }
 
         }

@@ -7,7 +7,7 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.io.IOException;
 
-public class sceneSwitch {
+public class sceneSwitch { //pang switch lang to ng scene para di na paulit ulit mag type jasdashdadhah
 
     private String fxmlFile;
     Parent root;
@@ -21,6 +21,7 @@ public class sceneSwitch {
         root = FXMLLoader.load(getClass().getResource(fxmlFile));
         scene = new Scene(root);
         NXTVMain.stage.setScene(scene);
+        NXTVMain.stage.setResizable(false);
         NXTVMain.stage.show();
     }
 

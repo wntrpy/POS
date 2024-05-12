@@ -12,7 +12,7 @@ import application.AddToCartItems;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemController {
+public class ItemController { //wag muna to pansinin since ito yung controller ng Item node :(
     // POS ItemNode
     @FXML private Button addToCart;
     @FXML private ImageView itemPicture;
@@ -68,7 +68,7 @@ public class ItemController {
             AddToCartItems addItem = new AddToCartItems(name, brand, itemDescription, Category, itemPrice, itemQuantity);
             clickedItems.add(addItem);
 
-            POSController.add();//prints ung laman everytime na pindotin si add to cart
+           // POSController.add();//prints ung laman everytime na pindotin si add to cart
         }
 
     }
