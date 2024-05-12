@@ -116,7 +116,7 @@ public class POSController implements Initializable {
 
 
     public void showDefault(){
-        ObservableList<Items> list = getList();
+        ObservableList<Items> list = getList(); //gets lang ung list :)
 
         //create cells sa table columnsss
         //retrieves values sa Items Class based sa Variablesss
