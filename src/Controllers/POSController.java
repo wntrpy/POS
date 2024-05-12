@@ -63,14 +63,8 @@ public class POSController implements Initializable {
     @FXML private TableView<AddToCartItems> cartListTV;
     //END OF RIGHT ITEMS
 
-
- 
-
-   public static List<AddToCartItems> listOfItems;
-   
-   //public List<AddToCartItems> clickedItems = new ArrayList<>(); //list of add to carts
-   
-   public ObservableList<AddToCartItems> clickedItems = FXCollections.observableArrayList();
+    
+   public ObservableList<AddToCartItems> clickedItems = FXCollections.observableArrayList(); //list of add to carts
 
 
     @Override
@@ -86,10 +80,12 @@ public class POSController implements Initializable {
         try {
             PreparedStatement loadItem = NXTVMain.local.getConnection()
                     .prepareStatement(
-                            "SELECT ItemID, ItemBrand, ItemName, Categories, "
-                                    + "DescriptionAndValues, SuggestedRetailPrice, ClearancePrice, Quantity "
-                                    + "FROM Retail_Inventory_ALL ");
-
+                    		 "SELECT ItemID, ItemBrand, ItemName, Categories, "
+                                     + "DescriptionAndValues, SuggestedRetailPrice, ClearancePrice, Quantity "
+                                     + "FROM Retail_Inventory_ALL "
+                                     + "WHERE BranchID = ?");
+            loadItem.setString(1, NXTVMain.branchID);
+            
             ResultSet type = loadItem.executeQuery();
             while (type.next()) {
 
@@ -205,7 +201,6 @@ public void add() { //print lang ung list
         cartListTV.setItems(clickedItems);
     }
 }//create ng 2 methods na prang ganto? isa for summary isa for adding sa Cart TV? ewan
-
 
 
 } //end of POS Controller

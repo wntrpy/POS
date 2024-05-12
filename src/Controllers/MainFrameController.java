@@ -121,11 +121,13 @@ public class MainFrameController implements Initializable{
     void btnPOS(ActionEvent event) throws IOException {
         System.out.println("POS");
         setCenterScenes("/FXML/POS.fxml");
+        detailsCard.setVisible(false);
     }
 
     @FXML
     void btnReport(ActionEvent event) throws IOException{
         setCenterScenes("/FXML/Reports.fxml");
+        detailsCard.setVisible(false);
     }
 
     public void setCenterScenes(String fxmlFile) {
@@ -138,9 +140,5 @@ public class MainFrameController implements Initializable{
             e.printStackTrace();
         }
     }
-
-
-	
-
 }//end of class
 //TODO: pano ung sa summary, need ma load un sa center ng border pane hahaha
