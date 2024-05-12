@@ -14,7 +14,7 @@ public class NXTVMain extends Application{
 // all static variables since this is the Main program that launches everything
 
     public static final String branchID = "MainPlaridel";
-    public static final ConnectDB local = new ConnectDB("PC-1\\SQLEXPRESS","NXTVapeLounge","sa","12345");
+    public static final ConnectDB local = new ConnectDB("AYOOBITCH\\SQLEXPRESS","NXTVapeLounge","sa","1234");
     public static Login localLog;
 
     public static Stage stage;

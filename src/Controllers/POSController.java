@@ -1,44 +1,30 @@
 package Controllers;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-
 import java.io.IOException;
-import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
+import javafx.scene.input.KeyEvent;
 import application.AddToCartItems;
 import application.Items;
 import application.NXTVMain;
-import application.sceneSwitch;
 
 //git add .
 //git commit -m "message here"
 //git push -u origin main
 
 
-public class POSController implements Initializable {
+public class POSController{
     @FXML private TextField searchBar;
-    @FXML private Button searchBtn;
     @FXML private Button checkoutBTn;
 
     //LEFT ITEMS
@@ -65,22 +51,42 @@ public class POSController implements Initializable {
     
    public ObservableList<AddToCartItems> clickedItems = FXCollections.observableArrayList();
     
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-       showDefault(); //calls lang ung showDeault since nandon lahat ng need para sa initial na itsura ng POS
+    public void initialize() {
+       loadPOSItemList(""); //calls lang ung showDeault since nandon lahat ng need para sa initial na itsura ng POS
     }
-
-    public ObservableList<Items> getList(){ //returns a list base dun sa query
+    
+    // changes itemList sa kaliwa into relevant na  itemList depennde sa search
+	public void onTextFieldInputMethodTextChanged(KeyEvent event) {
+		// Add your logic here
+		String newText = searchBar.getText(); // Access the new input text
+		System.out.println("Input method text changed: " + newText);
+		loadPOSItemList(newText);
+	}
+    
+    public ObservableList<Items> getList(String search){ //returns a list base dun sa query
         ObservableList<Items> tempList = FXCollections.observableArrayList();
 
         Items items;
 
         try {
-            PreparedStatement loadItem = NXTVMain.local.getConnection()
-                    .prepareStatement(
-                            "SELECT ItemID, ItemBrand, ItemName, Categories, "
-                                    + "DescriptionAndValues, SuggestedRetailPrice, ClearancePrice, Quantity "
-                                    + "FROM Retail_Inventory_ALL ");
+        	PreparedStatement loadItem = NXTVMain.local.getConnection().prepareStatement(
+        		    "SELECT ItemID, ItemBrand, ItemName, Categories, "
+        		    + "DescriptionAndValues, SuggestedRetailPrice, ClearancePrice, Quantity "
+        		    + "FROM Retail_Inventory_ALL WHERE BranchID = ? AND ("
+        		    + "ItemID LIKE ? OR "
+        		    + "ItemBrand LIKE ? OR "
+        		    + "ItemName LIKE ? OR "
+        		    + "Categories LIKE ? OR "
+        		    + "DescriptionAndValues LIKE ?)");
+
+        		loadItem.setString(1, NXTVMain.branchID);
+        		loadItem.setString(2, "%" + search + "%");
+        		loadItem.setString(3, "%" + search + "%");
+        		loadItem.setString(4, "%" + search + "%");
+        		loadItem.setString(5, "%" + search + "%");
+        		loadItem.setString(6, "%" + search + "%");
+
+
 
             ResultSet type = loadItem.executeQuery();
             while (type.next()) {
@@ -106,9 +112,10 @@ public class POSController implements Initializable {
         return tempList;
     }
 
-
-    public void showDefault(){
-        ObservableList<Items> list = getList(); //gets lang ung list :)
+    public void loadPOSItemList(String search){
+    	
+    	
+        ObservableList<Items> list = getList(search); //gets lang ung list :)
 
         //create cells sa table columnsss
         //retrieves values sa Items Class based sa Variablesss
@@ -121,7 +128,6 @@ public class POSController implements Initializable {
         ClearancePriceCol.setCellValueFactory(new PropertyValueFactory<>("ClearancePrice"));
         QuantityCol.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
 
-  
         ButtonCol.setCellFactory(param -> new TableCell<>() {
             private final Button addToCartButton = new Button("Add to Cart"); //create btn
 
@@ -170,31 +176,28 @@ public class POSController implements Initializable {
 
 @FXML
     private void onButtonAction(ActionEvent e) throws IOException {
-    if (e.getSource() == searchBtn) { //dito ung query for search 
-        System.out.println("SEARCH!");
-    } 
     
-    else if (e.getSource() == checkoutBTn) {
+    if (e.getSource() == checkoutBTn) {
         System.out.println("CHECKOUT CLICKED");
 
         add(); //print lang po yung final records ng list
-
     }
+    
     
 }
 
 
-public void add() { //prints ung lamang ng list + nag add ng records dun sa Cart Table View
-    for (int i = 0; i < clickedItems.size(); i++) {
-        System.out.print(clickedItems.get(i) + "\n");
+	public void add() { //prints ung lamang ng list + nag add ng records dun sa Cart Table View
+		for (int i = 0; i < clickedItems.size(); i++) {
+			System.out.print(clickedItems.get(i) + "\n");
         
-        addToCartBrandCol.setCellValueFactory(new PropertyValueFactory<>("brand"));
-        addToCartNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        addToCartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
-        addToCartQttyCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        addToCartDescCol.setCellValueFactory(new PropertyValueFactory<>("itemDescription"));
+			addToCartBrandCol.setCellValueFactory(new PropertyValueFactory<>("brand"));
+			addToCartNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+			addToCartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+			addToCartQttyCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+			addToCartDescCol.setCellValueFactory(new PropertyValueFactory<>("itemDescription"));
         
-        cartListTV.setItems(clickedItems);
+			cartListTV.setItems(clickedItems);
     }
 }//create ng 2 methods na prang ganto? isa for summary isa for adding sa Cart TV? ewan
 

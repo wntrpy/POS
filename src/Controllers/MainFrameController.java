@@ -52,7 +52,7 @@ public class MainFrameController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	setCenterScenes("/FXML/Dashboard.fxml");
 
-        DBImageHandler.setUserPhoto(NXTVMain.localLog.getUserID(), "D:\\javaFXProjects\\NXTVVapeLounge\\src\\main\\resources\\org\\example\\nxtvvapelounge\\images\\hanni.png");
+        //DBImageHandler.setUserPhoto(NXTVMain.localLog.getUserID(), "E:\\JavaOOP\\q\\src\\Images\\hanni.png");
 
         try { //try catch in case na magkaproblem sa pagseset ng data sa labels
             System.out.println(NXTVMain.localLog.getFirstName());
