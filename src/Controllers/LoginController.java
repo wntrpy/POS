@@ -32,6 +32,12 @@ public class LoginController {
     @FXML private Text QuestionText;
     @FXML private Text VoteCountText;
 
+    
+    public void EnterLogin() throws Exception {
+    	loginButton.fire();
+    }
+    
+    
 
     // Log into the application using Login.java
     public void login(ActionEvent e) throws Exception{

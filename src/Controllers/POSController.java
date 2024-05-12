@@ -48,11 +48,25 @@ public class POSController{
     @FXML private TableColumn<AddToCartItems, String> addToCartPriceCol;
     @FXML private TableView<AddToCartItems> cartListTV;
     //END OF RIGHT ITEMS
+<<<<<<< HEAD
+
+    
+   public ObservableList<AddToCartItems> clickedItems = FXCollections.observableArrayList(); //list of add to carts
+
+
+=======
     
    public ObservableList<AddToCartItems> clickedItems = FXCollections.observableArrayList();
     
+<<<<<<< HEAD
     public void initialize() {
        loadPOSItemList(""); //calls lang ung showDeault since nandon lahat ng need para sa initial na itsura ng POS
+=======
+>>>>>>> 1c7fd35919137f522691f107a94c83e419fcadd0
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+       showDefault(); //calls lang ung showDeault since nandon lahat ng need para sa initial na itsura ng POS
+>>>>>>> 5109fc31bd1e0f4533773380d214009f7b285f66
     }
     
     // changes itemList sa kaliwa into relevant na  itemList depennde sa search
@@ -69,6 +83,7 @@ public class POSController{
         Items items;
 
         try {
+<<<<<<< HEAD
         	PreparedStatement loadItem = NXTVMain.local.getConnection().prepareStatement(
         		    "SELECT ItemID, ItemBrand, ItemName, Categories, "
         		    + "DescriptionAndValues, SuggestedRetailPrice, ClearancePrice, Quantity "
@@ -88,6 +103,16 @@ public class POSController{
 
 
 
+=======
+            PreparedStatement loadItem = NXTVMain.local.getConnection()
+                    .prepareStatement(
+                    		 "SELECT ItemID, ItemBrand, ItemName, Categories, "
+                                     + "DescriptionAndValues, SuggestedRetailPrice, ClearancePrice, Quantity "
+                                     + "FROM Retail_Inventory_ALL "
+                                     + "WHERE BranchID = ?");
+            loadItem.setString(1, NXTVMain.branchID);
+            
+>>>>>>> 5109fc31bd1e0f4533773380d214009f7b285f66
             ResultSet type = loadItem.executeQuery();
             while (type.next()) {
 
@@ -200,7 +225,6 @@ public class POSController{
 			cartListTV.setItems(clickedItems);
     }
 }//create ng 2 methods na prang ganto? isa for summary isa for adding sa Cart TV? ewan
-
 
 
 } //end of POS Controller
