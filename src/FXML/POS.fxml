@@ -12,20 +12,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="738.0" prefWidth="1304.0" style="-fx-background-color: #181717;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.POSController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="738.0" prefWidth="1304.0" style="-fx-background-color: #181717;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.POSController">
    <children>
       <Pane prefHeight="25.0" prefWidth="1304.0" />
       <HBox prefHeight="673.0" prefWidth="1304.0" spacing="60.0" stylesheets="@../styles/style.css">
          <children>
             <HBox prefHeight="674.0" prefWidth="816.0" style="-fx-background-color: #202225;">
                <children>
-                  <VBox prefHeight="687.0" prefWidth="816.0" stylesheets="@../styles/style.css">
+                  <VBox prefHeight="687.0" prefWidth="816.0" style="-fx-background-color: #181717;" stylesheets="@../styles/style.css">
                      <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="45.0" prefWidth="463.0" style="-fx-border-radius: 50; -fx-border-color: #D7D7D7;">
                                  <children>
-                                    <Button fx:id="searchBtn" mnemonicParsing="false" onAction="#onButtonAction" style="-fx-background-color: transparent;">
+                                    <Button fx:id="searchBtn" mnemonicParsing="false" style="-fx-background-color: transparent;">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -34,32 +34,29 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                    <TextField fx:id="searchBar" prefHeight="25.0" prefWidth="423.0" style="-fx-background-color: transparent;" styleClass="searchBar" stylesheets="@../styles/style.css" text="Search item" />
+                                    <TextField fx:id="searchBar" onKeyTyped="onTextFieldInputMethodTextChanged" prefHeight="25.0" prefWidth="423.0" promptText="Search Item" style="-fx-background-color: transparent;" styleClass="searchBar" stylesheets="@../styles/style.css" />
                                  </children>
                               </HBox>
                               <Pane prefHeight="100.0" prefWidth="24.0" />
                            </children>
                         </HBox>
-                        <HBox>
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </VBox.margin>
+                        <VBox prefHeight="554.0" prefWidth="808.0">
                            <children>
-                              <TableView fx:id="SearchItemTV" prefHeight="487.0" prefWidth="760.0">
-                                <columns>
-                                  <TableColumn fx:id="ItemIDCol" prefWidth="49.0" text="ItemID" />
-                                  <TableColumn fx:id="ItemBrandCol" prefWidth="74.0" text="ItemBrand" />
-                                    <TableColumn fx:id="ItemNameCol" prefWidth="94.0" text="ItemName" />
-                                    <TableColumn fx:id="CategoriesCol" prefWidth="86.0" text="Categories" />
-                                    <TableColumn fx:id="DescriptionCol" minWidth="0.0" prefWidth="122.0" text="Description" />
-                                    <TableColumn fx:id="SRPCol" minWidth="0.0" prefWidth="60.0" text="SRP" />
-                                    <TableColumn fx:id="ClearancePriceCol" minWidth="0.0" prefWidth="106.0" text="Clearance Price" />
-                                    <TableColumn fx:id="QuantityCol" minWidth="0.0" prefWidth="70.0" text="Quantity" />
-                                    <TableColumn fx:id="ButtonCol" minWidth="0.0" prefWidth="97.0" text="Buttons" />
-                                </columns>
+                              <TableView fx:id="SearchItemTV" prefHeight="556.0" prefWidth="808.0" style="-fx-border-width: 0; -fx-border-color: #181717; -fx-background-color: #181717;" styleClass="POSitemList" stylesheets="@../Styles/style.css">
+                                 <columns>
+                                    <TableColumn fx:id="ItemIDCol" prefWidth="49.0" styleClass="POSitemList" text="ItemID" />
+                                    <TableColumn id="." fx:id="ItemBrandCol" prefWidth="74.0" styleClass="POSitemList" text="ItemBrand" />
+                                    <TableColumn id="." fx:id="ItemNameCol" prefWidth="94.0" styleClass="POSitemList" text="ItemName" />
+                                    <TableColumn id="." fx:id="CategoriesCol" prefWidth="86.0" styleClass="POSitemList" text="Categories" />
+                                    <TableColumn id="." fx:id="DescriptionCol" minWidth="0.0" prefWidth="122.0" styleClass="POSitemList" text="Description" />
+                                    <TableColumn id="." fx:id="SRPCol" minWidth="0.0" prefWidth="60.0" styleClass="POSitemList" text="SRP" />
+                                    <TableColumn id="." fx:id="ClearancePriceCol" minWidth="0.0" prefWidth="106.0" styleClass="POSitemList" text="Clearance Price" />
+                                    <TableColumn id="." fx:id="QuantityCol" minWidth="0.0" prefWidth="77.0" styleClass="POSitemList" text="Quantity" />
+                                    <TableColumn id="." fx:id="ButtonCol" minWidth="0.0" prefWidth="139.0" styleClass="POSitemList" text="Buttons" />
+                                 </columns>
                               </TableView>
                            </children>
-                        </HBox>
+                        </VBox>
                      </children>
                      <HBox.margin>
                         <Insets />

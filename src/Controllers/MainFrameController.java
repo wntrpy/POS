@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 public class MainFrameController implements Initializable{
     @FXML private BorderPane borderPane;
     @FXML private Button dashboardBtn;
-    @FXML private AnchorPane detailsCard;
+    @FXML private AnchorPane detailsCard; 
     @FXML private Button employeesBtn;
     @FXML private Button imgBtn;
     @FXML private ImageView imgPic; //para sa image sa mainframe
@@ -52,7 +52,7 @@ public class MainFrameController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	setCenterScenes("/FXML/Dashboard.fxml");
 
-        DBImageHandler.setUserPhoto(NXTVMain.localLog.getUserID(), "D:\\javaFXProjects\\NXTVVapeLounge\\src\\main\\resources\\org\\example\\nxtvvapelounge\\images\\hanni.png");
+       // DBImageHandler.setUserPhoto(NXTVMain.localLog.getUserID(), "D:\\javaFXProjects\\NXTVVapeLounge\\src\\main\\resources\\org\\example\\nxtvvapelounge\\images\\hanni.png");
 
         try { //try catch in case na magkaproblem sa pagseset ng data sa labels
             System.out.println(NXTVMain.localLog.getFirstName());
@@ -76,15 +76,12 @@ public class MainFrameController implements Initializable{
     
     @FXML
     private void handleButtonAction(ActionEvent e) throws Exception{
-        if (e.getSource() == imgBtn) {
-
+        if (e.getSource() == imgBtn) { //update lang visibility ni deets card
             System.out.println("Visibility: " + cardVisible);
             cardVisible = !cardVisible;
             detailsCard.setVisible(cardVisible);
             detailsCard.toFront();
-         
-            //detailsCard.
-
+      
             if (!borderPane.getChildren().contains(detailsCard)) {
                 borderPane.getChildren().add(detailsCard);
             }
@@ -101,11 +98,27 @@ public class MainFrameController implements Initializable{
             sw.setFxmlFile("/FXML/LoginPage.fxml");
             sw.switchScenes();
         }
+        else if(e.getSource() == dashboardBtn) { //loads dashboard lang
+        	setCenterScenes("/FXML/Dashboard.fxml");
+            System.out.println("Dashboard");
+        }
+        else if(e.getSource() == posBtn) { //loads pos lang asasdasd
+            setCenterScenes("/FXML/POS.fxml");
+            System.out.println("POS");
+        }
+        else if(e.getSource() == reportsBtn) { //loads reports 
+        	  setCenterScenes("/FXML/Reports.fxml");
+            System.out.println("REPORTS");
+        }
+        else if(e.getSource() == membersBtn) {
+        	  setCenterScenes("/FXML/Members.fxml");
+              System.out.println("MEMBERS");
+        }
 
     }
 
 
-    @FXML //ito naman pag cinlick yung btnDashboard saka palang to tatawagin kaya iba to sa isang same method
+    /*@FXML //ito naman pag cinlick yung btnDashboard saka palang to tatawagin kaya iba to sa isang same method
     void btnDashboard(ActionEvent event) throws IOException {
         setCenterScenes("/FXML/Dashboard.fxml");
         System.out.println("Dashboard");
@@ -121,14 +134,14 @@ public class MainFrameController implements Initializable{
     void btnPOS(ActionEvent event) throws IOException {
         System.out.println("POS");
         setCenterScenes("/FXML/POS.fxml");
-        detailsCard.setVisible(false);
     }
 
     @FXML
     void btnReport(ActionEvent event) throws IOException{
         setCenterScenes("/FXML/Reports.fxml");
-        detailsCard.setVisible(false);
-    }
+    }*/
+    
+
 
     public void setCenterScenes(String fxmlFile) {
         try {

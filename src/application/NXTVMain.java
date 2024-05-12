@@ -51,3 +51,7 @@ public class NXTVMain extends Application{
 
 }
 //may binago ka sa xmlns ng loginpage, ung version balikan mo nalang
+
+
+//Member Page: 
+//CRD 

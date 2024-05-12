@@ -1,0 +1,61 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 524288000 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3617), pid=1000, tid=18436
+#
+# JRE version: OpenJDK Runtime Environment Temurin-17.0.8.1+1 (17.0.8.1+1) (build 17.0.8.1+1)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-17.0.8.1+1 (17.0.8.1+1, mixed mode, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: --module-path=D:\extractJavaFxFileEclipse\javafx-sdk-22\lib --add-modules=javafx.controls,javafx.graphics,javafx.fxml -Dfile.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages application.NXTVMain
+
+Host: AMD Ryzen 5 4600H with Radeon Graphics         , 12 cores, 7G,  Windows 11 , 64 bit Build 22621 (10.0.22621.3374)
+Time: Sun May 12 18:01:24 2024 Taipei Standard Time elapsed time: 1247.319475 seconds (0d 0h 20m 47s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001337f9517e0):  VMThread "VM Thread" [stack: 0x0000001368000000,0x0000001368100000] [id=18436]
+
+Stack: [0x0000001368000000,0x0000001368100000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x678b0a]
+V  [jvm.dll+0x835e84]
+V  [jvm.dll+0x83762e]
+V  [jvm.dll+0x837c93]
+V  [jvm.dll+0x24746f]
+V  [jvm.dll+0x675859]
+V  [jvm.dll+0x66a0ea]
+V  [jvm.dll+0x306c7b]
+V  [jvm.dll+0x30e166]
+V  [jvm.dll+0x35dd3e]
+V  [jvm.dll+0x35df6f]
+V  [jvm.dll+0x2ddb48]
+V  [jvm.dll+0x2dbd0c]
+V  [jvm.dll+0x2db2dc]
+V  [jvm.dll+0x31f18b]
+V  [jvm.dll+0x83c15b]
+V  [jvm.dll+0x83ce94]
+V  [jvm.dll+0x83d3ac]
+V  [jvm.dll+0x83d784]
+V  [jvm.dll+0x83d850]
+V  [jvm.dll+0x7e64ca]

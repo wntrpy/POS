@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -62,63 +63,91 @@ public class POSController implements Initializable {
     @FXML private TableColumn<AddToCartItems, String> addToCartPriceCol;
     @FXML private TableView<AddToCartItems> cartListTV;
     //END OF RIGHT ITEMS
-<<<<<<< HEAD
+
 
     
    public ObservableList<AddToCartItems> clickedItems = FXCollections.observableArrayList(); //list of add to carts
-
-
-=======
     
-   public ObservableList<AddToCartItems> clickedItems = FXCollections.observableArrayList();
-    
->>>>>>> 1c7fd35919137f522691f107a94c83e419fcadd0
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-       showDefault(); //calls lang ung showDeault since nandon lahat ng need para sa initial na itsura ng POS
+    	   loadPOSItemList(""); //calls lang ung showDeault since nandon lahat ng need para sa initial na itsura ng POS
+
     }
+    
+    
+    // changes itemList sa kaliwa into relevant na  itemList depennde sa search
+  	public void onTextFieldInputMethodTextChanged(KeyEvent event) {
+  		// Add your logic here
+  		String newText = searchBar.getText(); // Access the new input text
+  		System.out.println("Input method text changed: " + newText);
+  		loadPOSItemList(newText);
+  	}
+  	
+  	
 
-    public ObservableList<Items> getList(){ //returns a list base dun sa query
-        ObservableList<Items> tempList = FXCollections.observableArrayList();
+  	 public ObservableList<Items> getList(String search){ //returns a list base dun sa query
+         ObservableList<Items> tempList = FXCollections.observableArrayList();
 
-        Items items;
+         Items items;
 
-        try {
-            PreparedStatement loadItem = NXTVMain.local.getConnection()
-                    .prepareStatement(
-                    		 "SELECT ItemID, ItemBrand, ItemName, Categories, "
-                                     + "DescriptionAndValues, SuggestedRetailPrice, ClearancePrice, Quantity "
-                                     + "FROM Retail_Inventory_ALL "
-                                     + "WHERE BranchID = ?");
-            loadItem.setString(1, NXTVMain.branchID);
-            
-            ResultSet type = loadItem.executeQuery();
-            while (type.next()) {
+         try {
+         	PreparedStatement loadItem = NXTVMain.local.getConnection().prepareStatement(
+         		    "SELECT ItemID, ItemBrand, ItemName, Categories, "
+         		    + "DescriptionAndValues, SuggestedRetailPrice, ClearancePrice, Quantity "
+         		    + "FROM Retail_Inventory_ALL WHERE BranchID = ? AND ("
+         		    + "ItemID LIKE ? OR "
+         		    + "ItemBrand LIKE ? OR "
+         		    + "ItemName LIKE ? OR "
+         		    + "Categories LIKE ? OR "
+         		    + "DescriptionAndValues LIKE ?)");
 
-                items = new Items(type.getString("ItemID"), type.getString("ItemBrand"), type.getString("ItemName"), type.getString("Categories"), type.getString("DescriptionAndValues"),  type.getString("SuggestedRetailPrice"), type.getString("ClearancePrice"), type.getString("Quantity"));
-
-                System.out.println("\nItemID: " + type.getString("ItemID"));
-                System.out.println("ItemBrand: " + type.getString("ItemBrand"));
-                System.out.println("ItemName: " + type.getString("ItemName"));
-                System.out.println("SuggestedRetailPrice: " + type.getString("SuggestedRetailPrice"));
-                System.out.println("Quantity: " + type.getString("Quantity"));
-                System.out.println("Description: " + type.getString("DescriptionAndValues"));
-                System.out.println("Categories: " + type.getString("Categories"));
-                System.out.println("Clearance Price " + type.getString("ClearancePrice"));
-
-                tempList.add(items);
-
-            } //end of type.next
-        }//end of try
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return tempList;
-    }
+         		loadItem.setString(1, NXTVMain.branchID);
+         		loadItem.setString(2, "%" + search + "%");
+         		loadItem.setString(3, "%" + search + "%");
+         		loadItem.setString(4, "%" + search + "%");
+         		loadItem.setString(5, "%" + search + "%");
+         		loadItem.setString(6, "%" + search + "%");
 
 
-    public void showDefault(){
-        ObservableList<Items> list = getList(); //gets lang ung list :)
+
+              loadItem = NXTVMain.local.getConnection()
+                     .prepareStatement(
+                     		 "SELECT ItemID, ItemBrand, ItemName, Categories, "
+                                      + "DescriptionAndValues, SuggestedRetailPrice, ClearancePrice, Quantity "
+                                      + "FROM Retail_Inventory_ALL "
+                                      + "WHERE BranchID = ?");
+             loadItem.setString(1, NXTVMain.branchID);
+             
+             ResultSet type = loadItem.executeQuery();
+             while (type.next()) {
+
+                 items = new Items(type.getString("ItemID"), type.getString("ItemBrand"), type.getString("ItemName"), type.getString("Categories"), type.getString("DescriptionAndValues"),  type.getString("SuggestedRetailPrice"), type.getString("ClearancePrice"), type.getString("Quantity"));
+
+                 System.out.println("\nItemID: " + type.getString("ItemID"));
+                 System.out.println("ItemBrand: " + type.getString("ItemBrand"));
+                 System.out.println("ItemName: " + type.getString("ItemName"));
+                 System.out.println("SuggestedRetailPrice: " + type.getString("SuggestedRetailPrice"));
+                 System.out.println("Quantity: " + type.getString("Quantity"));
+                 System.out.println("Description: " + type.getString("DescriptionAndValues"));
+                 System.out.println("Categories: " + type.getString("Categories"));
+                 System.out.println("Clearance Price " + type.getString("ClearancePrice"));
+
+                 tempList.add(items);
+
+             } //end of type.next
+         }//end of try
+         catch (Exception e){
+             e.printStackTrace();
+         }
+         return tempList;
+     }
+
+
+public void loadPOSItemList(String search){
+    	
+    	
+        ObservableList<Items> list = getList(search); //gets lang ung list :)
 
         //create cells sa table columnsss
         //retrieves values sa Items Class based sa Variablesss
@@ -131,7 +160,6 @@ public class POSController implements Initializable {
         ClearancePriceCol.setCellValueFactory(new PropertyValueFactory<>("ClearancePrice"));
         QuantityCol.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
 
-  
         ButtonCol.setCellFactory(param -> new TableCell<>() {
             private final Button addToCartButton = new Button("Add to Cart"); //create btn
 
@@ -176,21 +204,15 @@ public class POSController implements Initializable {
         SearchItemTV.setItems(list);
     }
 
+
    
 
 @FXML
     private void onButtonAction(ActionEvent e) throws IOException {
-    if (e.getSource() == searchBtn) { //dito ung query for search 
-        System.out.println("SEARCH!");
-    } 
-    
-    else if (e.getSource() == checkoutBTn) {
+     if (e.getSource() == checkoutBTn) {
         System.out.println("CHECKOUT CLICKED");
-
         add(); //print lang po yung final records ng list
-
     }
-    
 }
 
 
