@@ -62,11 +62,17 @@ public class POSController implements Initializable {
     @FXML private TableColumn<AddToCartItems, String> addToCartPriceCol;
     @FXML private TableView<AddToCartItems> cartListTV;
     //END OF RIGHT ITEMS
+<<<<<<< HEAD
 
     
    public ObservableList<AddToCartItems> clickedItems = FXCollections.observableArrayList(); //list of add to carts
 
 
+=======
+    
+   public ObservableList<AddToCartItems> clickedItems = FXCollections.observableArrayList();
+    
+>>>>>>> 1c7fd35919137f522691f107a94c83e419fcadd0
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
        showDefault(); //calls lang ung showDeault since nandon lahat ng need para sa initial na itsura ng POS
@@ -112,7 +118,7 @@ public class POSController implements Initializable {
 
 
     public void showDefault(){
-        ObservableList<Items> list = getList();
+        ObservableList<Items> list = getList(); //gets lang ung list :)
 
         //create cells sa table columnsss
         //retrieves values sa Items Class based sa Variablesss
@@ -155,7 +161,7 @@ public class POSController implements Initializable {
                 });
             }
             
-            @Override //idk pa kung ano to AHSHASHHASHAS
+            @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
 
@@ -188,7 +194,7 @@ public class POSController implements Initializable {
 }
 
 
-public void add() { //print lang ung list
+public void add() { //prints ung lamang ng list + nag add ng records dun sa Cart Table View
     for (int i = 0; i < clickedItems.size(); i++) {
         System.out.print(clickedItems.get(i) + "\n");
         
