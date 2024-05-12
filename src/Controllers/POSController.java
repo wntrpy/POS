@@ -159,7 +159,7 @@ public class POSController implements Initializable {
                 });
             }
             
-            @Override //idk pa kung ano to AHSHASHHASHAS
+            @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
 
@@ -192,7 +192,7 @@ public class POSController implements Initializable {
 }
 
 
-public void add() { //print lang ung list
+public void add() { //prints ung lamang ng list + nag add ng records dun sa Cart Table View
     for (int i = 0; i < clickedItems.size(); i++) {
         System.out.print(clickedItems.get(i) + "\n");
         
