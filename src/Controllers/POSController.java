@@ -48,26 +48,14 @@ public class POSController{
     @FXML private TableColumn<AddToCartItems, String> addToCartPriceCol;
     @FXML private TableView<AddToCartItems> cartListTV;
     //END OF RIGHT ITEMS
-<<<<<<< HEAD
-
     
    public ObservableList<AddToCartItems> clickedItems = FXCollections.observableArrayList(); //list of add to carts
 
 
-=======
-    
-   public ObservableList<AddToCartItems> clickedItems = FXCollections.observableArrayList();
-    
-<<<<<<< HEAD
     public void initialize() {
        loadPOSItemList(""); //calls lang ung showDeault since nandon lahat ng need para sa initial na itsura ng POS
-=======
->>>>>>> 1c7fd35919137f522691f107a94c83e419fcadd0
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-       showDefault(); //calls lang ung showDeault since nandon lahat ng need para sa initial na itsura ng POS
->>>>>>> 5109fc31bd1e0f4533773380d214009f7b285f66
     }
+    
     
     // changes itemList sa kaliwa into relevant na  itemList depennde sa search
 	public void onTextFieldInputMethodTextChanged(KeyEvent event) {
@@ -77,13 +65,12 @@ public class POSController{
 		loadPOSItemList(newText);
 	}
     
-    public ObservableList<Items> getList(String search){ //returns a list base dun sa query
+    public ObservableList<Items> getList(String search) { //returns a list base dun sa query
         ObservableList<Items> tempList = FXCollections.observableArrayList();
 
         Items items;
 
         try {
-<<<<<<< HEAD
         	PreparedStatement loadItem = NXTVMain.local.getConnection().prepareStatement(
         		    "SELECT ItemID, ItemBrand, ItemName, Categories, "
         		    + "DescriptionAndValues, SuggestedRetailPrice, ClearancePrice, Quantity "
@@ -100,19 +87,7 @@ public class POSController{
         		loadItem.setString(4, "%" + search + "%");
         		loadItem.setString(5, "%" + search + "%");
         		loadItem.setString(6, "%" + search + "%");
-
-
-
-=======
-            PreparedStatement loadItem = NXTVMain.local.getConnection()
-                    .prepareStatement(
-                    		 "SELECT ItemID, ItemBrand, ItemName, Categories, "
-                                     + "DescriptionAndValues, SuggestedRetailPrice, ClearancePrice, Quantity "
-                                     + "FROM Retail_Inventory_ALL "
-                                     + "WHERE BranchID = ?");
-            loadItem.setString(1, NXTVMain.branchID);
             
->>>>>>> 5109fc31bd1e0f4533773380d214009f7b285f66
             ResultSet type = loadItem.executeQuery();
             while (type.next()) {
 
@@ -228,7 +203,6 @@ public class POSController{
 
 
 } //end of POS Controller
-
 
 //scrollable receipt
 //scrollable items

@@ -21,7 +21,7 @@ public class sceneSwitch { //pang switch lang to ng scene para di na paulit ulit
         root = FXMLLoader.load(getClass().getResource(fxmlFile));
         scene = new Scene(root);
         NXTVMain.stage.setScene(scene);
-        NXTVMain.stage.setResizable(false);
+        NXTVMain.stage.setResizable(true);
         NXTVMain.stage.show();
     }
 

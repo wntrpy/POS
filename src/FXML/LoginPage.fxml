@@ -48,10 +48,7 @@
                </font>
             </Button>
             <Text fx:id="loginErrorText" layoutX="85.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" style="color: red;" text="Wrong Username or Password." visible="false" />
-<<<<<<< HEAD
-=======
             <PasswordField fx:id="passField" layoutX="46.0" layoutY="240.0" onAction="#EnterLogin" prefHeight="43.0" prefWidth="263.0" promptText=" Enter your password" style="-fx-background-color: white; -fx-background-radius: 10;" />
->>>>>>> 5109fc31bd1e0f4533773380d214009f7b285f66
          </children>
       </AnchorPane>
    </children>
