@@ -19,11 +19,11 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="95.0" prefWidth="300.0">
          <children>
-            <Button maxHeight="99.0" maxWidth="102.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="102.0" styleClass="imgBtn" stylesheets="@../Styles/style.css">
+            <Button maxHeight="99.0" maxWidth="102.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="102.0" styleClass="imgBtn" stylesheets="@../../Styles/style.css">
                <graphic>
                   <ImageView fx:id="MemberPic" fitHeight="91.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/reblon.png" />
+                        <Image url="@../../Images/reblon.png" />
                      </image>
                   </ImageView>
                </graphic>

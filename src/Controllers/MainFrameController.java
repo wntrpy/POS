@@ -72,7 +72,7 @@ public class MainFrameController implements Initializable{
             e.printStackTrace();
         }
         
-        MemberController mem = new MemberController(borderPane); //pasa ung borderPane sa member controller para may magamit na borderpane don pang setCenter ng scenes
+    //    MemberController mem = new MemberController(borderPane); //pasa ung borderPane sa member controller para may magamit na borderpane don pang setCenter ng scenes
 	}
     
     
@@ -92,7 +92,7 @@ public class MainFrameController implements Initializable{
         else if(e.getSource()  == changePassBtn){  //load lang change pass fxml
             System.out.println("CHANGE PASS HERE");
             sceneSwitch sw = new sceneSwitch();
-            sw.setFxmlFile("/FXML/ChangePassword.fxml");
+            sw.setFxmlFile("/FXML/MainFrame/ChangePassword.fxml");
             sw.switchScenes();
         }
         else if(e.getSource()  == logoutBtn){ //balik sa logout
@@ -109,11 +109,11 @@ public class MainFrameController implements Initializable{
             System.out.println("POS");
         }
         else if(e.getSource() == reportsBtn) { //loads reports 
-        	  setCenterScenes("/FXML/Reports.fxml");
+        	  setCenterScenes("/FXML/Reports/Reports.fxml");
             System.out.println("REPORTS");
         }
         else if(e.getSource() == membersBtn) {
-        	  setCenterScenes("/FXML/Members.fxml");
+        	  setCenterScenes("/FXML/Members/Members.fxml");
               System.out.println("MEMBERS");
         }
 

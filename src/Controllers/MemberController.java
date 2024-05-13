@@ -23,11 +23,11 @@ public class MemberController implements Initializable{
     @FXML private Button DeleteBtn;
 	@FXML private GridPane MemberListGrid;
 	
-    private BorderPane memberBorderPane;
+   // private BorderPane memberBorderPane;
     
-    public MemberController(BorderPane borderPane){
+    /*public MemberController(BorderPane borderPane){
     	this.memberBorderPane = borderPane;
-    }
+    }*/
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -42,7 +42,7 @@ public class MemberController implements Initializable{
 			
 			FXMLLoader itemLoader;
 			 while (type.next()) {
-	                itemLoader = new FXMLLoader(getClass().getResource("/FXML/MemberCard.fxml"));
+	                itemLoader = new FXMLLoader(getClass().getResource("/FXML/Members/MemberCard.fxml"));
 	                VBox memberNode = itemLoader.load();
 	                
 	                MemberCardController mem = itemLoader.getController();

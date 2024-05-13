@@ -20,7 +20,7 @@
          
             <VBox prefHeight="618.0" prefWidth="302.0">
                <children>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../Styles/style.css">
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../../Styles/style.css">
                      <children>
                         <Button fx:id="dashboardBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="172.0" style="-fx-background-color: transparent;" text="Home" textFill="#eeecec">
                            <font>
@@ -39,7 +39,7 @@
                         <String fx:value="roundCorners" />
                      </styleClass>
                   </HBox>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../styles/style.css">
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../../Styles/style.css">
                      <children>
                         <Button fx:id="posBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: transparent;" text="   POS" textFill="#fcfcfc">
                            <font>
@@ -61,7 +61,7 @@
                         <String fx:value="roundCorners" />
                      </styleClass>
                   </HBox>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../styles/style.css">
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../../Styles/style.css">
                      <children>
                         <Button fx:id="reportsBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="172.0" style="-fx-background-color: transparent;" text="  Reports" textFill="#f8f8f8">
                            <font>
@@ -80,7 +80,7 @@
                         <String fx:value="roundCorners" />
                      </styleClass>
                   </HBox>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../styles/style.css">
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../../Styles/style.css">
                      <children>
                         <Button fx:id="syncBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="174.0" style="-fx-background-color: transparent;" text="   Sync" textFill="#f8f8f8">
                            <font>
@@ -99,7 +99,7 @@
                         <String fx:value="roundCorners" />
                      </styleClass>
                   </HBox>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../styles/style.css">
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../../Styles/style.css">
                      <children>
                         <Button fx:id="inventoryBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="155.0" style="-fx-background-color: transparent;" text="      Inventory" textFill="#f8f8f8">
                            <font>
@@ -121,7 +121,7 @@
                         <String fx:value="roundCorners" />
                      </styleClass>
                   </HBox>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../styles/style.css">
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../../Styles/style.css">
                      <children>
                         <Button fx:id="pricesBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="176.0" style="-fx-background-color: transparent;" text=" Prices" textFill="#f8f8f8">
                            <font>
@@ -140,7 +140,7 @@
                         <String fx:value="roundCorners" />
                      </styleClass>
                   </HBox>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../styles/style.css">
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../../Styles/style.css">
                      <children>
                         <Button fx:id="membersBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="179.0" style="-fx-background-color: transparent;" text="  Members" textFill="#f8f8f8">
                            <font>
@@ -159,7 +159,7 @@
                         <String fx:value="roundCorners" />
                      </styleClass>
                   </HBox>
-                  <HBox layoutX="10.0" layoutY="670.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../styles/style.css">
+                  <HBox layoutX="10.0" layoutY="670.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../../Styles/style.css">
                      <children>
                         <Button fx:id="employeesBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="183.0" style="-fx-background-color: transparent;" text="  Employees" textFill="#f8f8f8">
                            <font>
@@ -178,7 +178,7 @@
                         <String fx:value="roundCorners" />
                      </styleClass>
                   </HBox>
-                  <HBox layoutX="58.0" layoutY="475.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../styles/style.css">
+                  <HBox layoutX="58.0" layoutY="475.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="170.0" stylesheets="@../../Styles/style.css">
                      <styleClass>
                         <String fx:value="mouse-moved" />
                         <String fx:value="roundCorners" />
@@ -236,11 +236,11 @@
                         <Font name="System Bold" size="23.0" />
                      </font>
                   </Label>
-                  <Button fx:id="imgBtn" minHeight="62.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="62.0" prefWidth="60.0" styleClass="imgBtn" stylesheets="@../styles/style.css">
+                  <Button fx:id="imgBtn" minHeight="62.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="62.0" prefWidth="60.0" styleClass="imgBtn" stylesheets="@../../Styles/style.css">
                      <graphic>
                         <ImageView fx:id="imgPic" fitHeight="69.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/chaewon-modified.png" />
+                              <Image url="@../../Images/chaewon-modified.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -252,103 +252,98 @@
    </top>
    
    <center>
-      <VBox BorderPane.alignment="CENTER">
+      <AnchorPane BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="283.0" prefWidth="1304.0">
+            <AnchorPane fx:id="detailsCard" layoutX="1046.0" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="244.0" styleClass="detailsCard" stylesheets="@../../Styles/style.css" visible="false">
                <children>
-                  <Pane prefHeight="314.0" prefWidth="1330.0" />
-                  <AnchorPane fx:id="detailsCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="244.0" styleClass="detailsCard" stylesheets="@../Styles/style.css" visible="false">
+                  <VBox fx:id="vboxIcons" layoutX="14.0" layoutY="14.0" prefHeight="264.0" prefWidth="62.0" spacing="30.0">
                      <children>
-                        <VBox fx:id="vboxIcons" layoutX="14.0" layoutY="14.0" prefHeight="264.0" prefWidth="62.0" spacing="30.0">
-                           <children>
-                              <Button fx:id="faceCard" minHeight="62.0" minWidth="63.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="63.0" styleClass="faceCard" stylesheets="@../styles/style.css">
-                                 <graphic>
-                                    <ImageView fx:id="cardUserPic" fitHeight="54.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/chaewon-modified.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <VBox.margin>
-                                    <Insets left="-5.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <ImageView fitHeight="76.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                        <Button fx:id="faceCard" minHeight="62.0" minWidth="63.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="63.0" styleClass="faceCard" stylesheets="@../../Styles/style.css">
+                           <graphic>
+                              <ImageView fx:id="cardUserPic" fitHeight="54.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Images/icons8-user-50.png" />
+                                    <Image url="@../../Images/chaewon-modified.png" />
                                  </image>
-                                 <VBox.margin>
-                                    <Insets left="-5.0" />
-                                 </VBox.margin>
                               </ImageView>
-                              <Button fx:id="changePassBtn" maxHeight="45.0" maxWidth="50.0" minHeight="62.0" minWidth="63.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="50.0" styleClass="detailsBtn" stylesheets="@../styles/style.css">
-                                 <graphic>
-                                    <ImageView fx:id="cardUserPic1" fitHeight="48.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/icons8-change-password-58.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <VBox.margin>
-                                    <Insets left="-5.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <Button fx:id="logoutBtn" minHeight="62.0" minWidth="63.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="62.0" prefWidth="63.0" styleClass="detailsBtn" stylesheets="@../styles/style.css">
-                                 <graphic>
-                                    <ImageView fx:id="cardUserPic2" fitHeight="41.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/icons8-logout-50.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                              </Button>
-                           </children>
-                           <padding>
-                              <Insets left="8.0" top="10.0" />
-                           </padding>
-                        </VBox>
-                        <VBox fx:id="vBoxLabels" layoutX="88.0" layoutY="35.0" prefHeight="262.0" prefWidth="155.0" spacing="30.0">
-                           <children>
-                              <Label fx:id="fullNameLbl" text="full name here" textFill="WHITE" wrapText="true">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="userTypeLbl" text="User Type" textFill="#f8f8f8">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="35.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Change Password" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Logout" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                              </Label>
-                           </children>
-                        </VBox>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets left="-5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <ImageView fitHeight="76.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Images/icons8-user-50.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-5.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Button fx:id="changePassBtn" maxHeight="45.0" maxWidth="50.0" minHeight="62.0" minWidth="63.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="50.0" styleClass="detailsBtn" stylesheets="@../../Styles/style.css">
+                           <graphic>
+                              <ImageView fx:id="cardUserPic1" fitHeight="48.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/icons8-change-password-58.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets left="-5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="logoutBtn" minHeight="62.0" minWidth="63.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="62.0" prefWidth="63.0" styleClass="detailsBtn" stylesheets="@../../Styles/style.css">
+                           <graphic>
+                              <ImageView fx:id="cardUserPic2" fitHeight="41.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/icons8-logout-50.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
                      </children>
-                  </AnchorPane>
+                     <padding>
+                        <Insets left="8.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="vBoxLabels" layoutX="88.0" layoutY="35.0" prefHeight="262.0" prefWidth="155.0" spacing="30.0">
+                     <children>
+                        <Label fx:id="fullNameLbl" text="full name here" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="userTypeLbl" text="User Type" textFill="#f8f8f8">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="35.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Change Password" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Logout" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
-            </HBox>
+            </AnchorPane>
          </children>
-      </VBox>
+      </AnchorPane>
    </center>
 
 

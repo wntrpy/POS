@@ -29,39 +29,52 @@ public class AddToCartItems {
 	}
 
 
-	public TextField getQuantity() {
-		return quantity;
-	}
-	
-	public void setQuantity(TextField quantity) {
-		this.quantity = quantity;
+	public TextField getQuantityTextField() {
+	    return quantityTextField;
 	}
 
-	public void setNewQtty(String newQtty) {
-	System.out.println("New Quantity " + newQtty);
-		quantity.setText(newQtty);
-		
-	}
 	
-	public int getLatestQtty() { //may problem dito kase di na kukuha ung updated na new quantity
-		return Integer.valueOf(quantity.getText());
+	public void setQuantityTextField(TextField quantityTextField) {
+		this.quantityTextField = quantityTextField;
 	}
+
+	public void setNewQtty(int newQtty) {
+	    System.out.println("New Quantity " + newQtty);
+	    this.quantity = String.valueOf(newQtty); //updates yung value ni quantity para don updated din ung ni rereturn ni getterrrr
+	    quantityTextField.setText(String.valueOf(newQtty)); //set sa quantityTextField yung updated quantity
+	}
+
+	
+	
+	
+
+    public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+    
+    public String getQuantity(){
+    	return quantity;
+    }
+
 
 	public String name;
     public String brand;
     public String itemDescription;
     public String category;
     public String price;
-    public TextField quantity;
+    public TextField quantityTextField;
+    private String quantity; 
  
 
-    public AddToCartItems(String name, String brand, String itemDescription, String category, String price, String quantity) {
+
+	public AddToCartItems(String name, String brand, String itemDescription, String category, String price, String quantity) {
         this.name = name;
         this.brand = brand;
         this.itemDescription = itemDescription;
         this.category = category;
         this.price = price;
-        this.quantity = new TextField(quantity);
+        this.quantityTextField = new TextField(quantity); //gawa ng text field kada instance ng item, na ang laman ng text is yung QUANTITY
+        this.quantity = quantity;
         
     }
 

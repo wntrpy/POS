@@ -65,7 +65,7 @@ public class LoginController {
                 System.out.println("DITO YUNG MAIN FRAME");
 
                 sceneSwitch switcher = new sceneSwitch();
-                switcher.setFxmlFile("/FXML/MainFrame.fxml");
+                switcher.setFxmlFile("/FXML/MainFrame/MainFrame.fxml");
                 switcher.switchScenes();
               
             }

@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.text.DecimalFormat;
 
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyEvent;
 import application.AddToCartItems;
 import application.Items;
@@ -138,56 +139,46 @@ public class POSController{
             private final Button addToCartButton = new Button("Add to Cart"); //create btn
 
             {
-                addToCartButton.setOnAction(event -> { //sets yung action ng btn
-                 
+                addToCartButton.setOnAction(event -> {  //sets yung action ng btn
+
                 	//kinukuha ung selected item sa tablew view 
                     Items selectedItem = getTableView().getItems().get(getIndex());
                     
-                    System.out.println("ITEM OBJ: " +  selectedItem);
                     //check if nasa cart na ung item
-                    	//if nandon na increment ng isa sa qtty
-                    	//if wala add lang sa cart
-                    
-                    
-                    
+                	//if nandon na increment ng isa sa qtty
+                	//if wala add lang sa cart
                     
                     if (selectedItem != null) {
-                    	//get lang po ung details nung item na na add to cart 
-                    	String name = selectedItem.getItemName();
+                        int defaultQuantity = 1;
+                    	//get lang ung details nung item sa add to cart 
+                        String name = selectedItem.getItemName();
                         String brand = selectedItem.getItemBrand();
                         String description = selectedItem.getDescription();
                         String category = selectedItem.getCategories();
                         String price = selectedItem.getSRP();
-                        String quantity = selectedItem.getQuantity();
-
-                        //create lang po ng instance ng add to cart items na istore den sa list .|.
-                        AddToCartItems addItem = new AddToCartItems(name, brand, description, category, price, quantity);
+                        String quantity = String.valueOf(defaultQuantity);
+       
+                        AddToCartItems addItem = new AddToCartItems(name, brand, description, category, price, quantity); //create instance ng add to cart 
                         
-                        System.out.println("STATUS: " + isItemInCart(addItem)); //pasa lang ung instance ng ma check
-
+                      
                         if (isItemInCart(addItem)) { //if true
-                            for (AddToCartItems item : clickedItems) {
-                                if (item.getName().equals(addItem.getName()) && item.getBrand().equals(addItem.getBrand())) {
-                                	System.out.println("LATEST QTTY " + item.getLatestQtty());
-                                	int updateCount = item.getLatestQtty() + 1;
-                                	addItem.setNewQtty(String.valueOf(updateCount));
-                                	
-                                   // item.incrementQuantity();
+                            for (AddToCartItems item : clickedItems) { //check if nag eexist na sa clickedItem(List) yung instance ng item na cinlickkkk
+                                if (item.getName().equals(addItem.getName()) && item.getBrand().equals(addItem.getBrand()) && item.getItemDescription().equals(item.getItemDescription())) {
+                                    int updateCount = Integer.valueOf(item.getQuantity()) + 1;
+                                    item.setNewQtty(updateCount); //call ung method para i set sa quantity TF ung new value
                                     break;
-                                }
-                            }
-                        }
-                        else { //dito if wala sa list, ede i aad sa Cart TV
+                                }//if
+                            }//for
+                        }//if 
+                        else {
                             clickedItems.add(addItem);
                         }
+                        System.out.println("ADD FUNCT");
+                        add(); //updates yung laman ng table vieww
 
-                        add(); //method na nag print ng laman ng list everytime na ma click ung add to cart mwehehehe
-                        
-                       //clickedItems.clear(); shits clear the list baka lang kelanganin
-                    }
-
+                    }//if
                 });
-            }
+            }//btn
             
             @Override
             protected void updateItem(Void item, boolean empty) {
@@ -207,12 +198,15 @@ public class POSController{
     
     private boolean isItemInCart(AddToCartItems newItem) {
         for (AddToCartItems item : clickedItems) { //need nandito si descript kase base sa records natin, same halos lahat si brand at name, sa desc lang nagka differ
-            if (item.getName().equals(newItem.getName()) && item.getBrand().equals(newItem.getBrand()) && item.getItemDescription().equals(newItem.getItemDescription())) {//pang check if them name and brand match ngga
+            if (item.getName().equals(newItem.getName()) && item.getBrand().equals(newItem.getBrand()) && item.getItemDescription().equals(newItem.getItemDescription())) {
                 return true; //true if equal or nandon na bitch
             }
         }
-        return false; // false if wala pa ngga
+        return false; // false if wala pa btch
     }
+    
+    
+    
 
 
    
@@ -238,15 +232,20 @@ public class POSController{
 			addToCartNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
 			addToCartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 			addToCartDescCol.setCellValueFactory(new PropertyValueFactory<>("itemDescription"));
-        
-			
-			addToCartQttyCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-			
+
+			addToCartQttyCol.setCellValueFactory(new PropertyValueFactory<>("quantityTextField"));
+			//TODO: May problem with quantity instance per Item, pag nag add ako ng new item tas pinindot ko ulet yung add to cart, ang nababagong quantity eh yung sa unang item, run mo nalang para malaman mo sinasabi ko AHSHASHHASHAS
+			//TODO: pagka input ng new value sa qtty TF, tas pinindot enter or kahit di na, dat ma update na yung new quantity
+			//TODO: di pa functional ung textfield :(
+			//TODO: di pa nababawasan yung qtty sa left pag nad add to cart o ganon talaga muna?
+			//TODO: wala pa nung condition na di pwede mag exceed yung qtty ng cart sa qtty ng left items
+			//TODO: ala pa delete buttons ung carts
+			//Kaya mo na re Cyrus malaki kana :) AHSHASHAHSHASHAHSHAS
 			
 			
 			cartListTV.setItems(clickedItems);
     }
-}//create ng 2 methods na prang ganto? isa for summary isa for adding sa Cart TV? ewan
+}
 
 
 } //end of POS Controller
@@ -262,10 +261,10 @@ public class POSController{
 
 //remove ItemID /
 //2 decimal sa SRP /
-//pag pinindot na ung add to cart, dat di na lumabas ulit sa right table view, intstead, mag add lang ng qtty
-//text field si quantity sa right TV
-//add ng new col sa right, which is for delete button
-//di pde mag exceed qtty ni right sa left
+//pag pinindot na ung add to cart, dat di na lumabas ulit sa right table view, intstead, mag add lang ng qtty /
+//text field si quantity sa right TV /
+//add ng new col sa right, which is for delete button 
+//di pde mag exceed qtty ni right sa left 
 
 
 
