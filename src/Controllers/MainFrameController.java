@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 
 
 public class MainFrameController implements Initializable{
-    @FXML private BorderPane borderPane;
+    @FXML private BorderPane borderPane; // name ng border pane
     @FXML private Button dashboardBtn;
     @FXML private AnchorPane detailsCard; 
     @FXML private Button employeesBtn;
@@ -46,13 +46,13 @@ public class MainFrameController implements Initializable{
     @FXML private Label userTypeLbl;
 
     private boolean cardVisible = true;
+    
+ 
 
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	setCenterScenes("/FXML/Dashboard.fxml");
-
-       // DBImageHandler.setUserPhoto(NXTVMain.localLog.getUserID(), "D:\\javaFXProjects\\NXTVVapeLounge\\src\\main\\resources\\org\\example\\nxtvvapelounge\\images\\hanni.png");
 
         try { //try catch in case na magkaproblem sa pagseset ng data sa labels
             System.out.println(NXTVMain.localLog.getFirstName());
@@ -71,6 +71,8 @@ public class MainFrameController implements Initializable{
         catch(Exception e){
             e.printStackTrace();
         }
+        
+        MemberController mem = new MemberController(borderPane); //pasa ung borderPane sa member controller para may magamit na borderpane don pang setCenter ng scenes
 	}
     
     
@@ -117,30 +119,6 @@ public class MainFrameController implements Initializable{
 
     }
 
-
-    /*@FXML //ito naman pag cinlick yung btnDashboard saka palang to tatawagin kaya iba to sa isang same method
-    void btnDashboard(ActionEvent event) throws IOException {
-        setCenterScenes("/FXML/Dashboard.fxml");
-        System.out.println("Dashboard");
-    }
-
-    
-    //TODO: ipasok mo nalang sa initialize method to lahat!
-
-
-
-
-    @FXML
-    void btnPOS(ActionEvent event) throws IOException {
-        System.out.println("POS");
-        setCenterScenes("/FXML/POS.fxml");
-    }
-
-    @FXML
-    void btnReport(ActionEvent event) throws IOException{
-        setCenterScenes("/FXML/Reports.fxml");
-    }*/
-    
 
 
     public void setCenterScenes(String fxmlFile) {

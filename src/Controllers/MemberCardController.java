@@ -27,7 +27,7 @@ public class MemberCardController {
     	
     	//Image image = new Image(getClass().getResourceAsStream("reblon.png"));
     	//MemberPic.setImage(image); //optional pero mag add ng mem pic column sa MEMBER table ASHHASHHASHAS
-    	MemberIDLbl.setText(String.valueOf(MemberID));
+    	MemberIDLbl.setText(String.valueOf(MemberID)); //convert since u can't put sum int in a label
     	FullNameLbl.setText(MemberName);
     	BirthdateLbl.setText(Birthdate);
     	

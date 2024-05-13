@@ -62,6 +62,10 @@ public class ConnectDB implements Runnable{
                 if (connection == null || connection.isClosed()||!connection.isValid(5)) {
                     // Attempt to reconnect
                     try {
+                    	System.out.println(server);
+                    	System.out.println(database);
+                    	System.out.println(username);
+                    	System.out.println(password);
                         connection = DriverManager.getConnection(buildURL(server, database), username, password);
                         System.out.println("Reconnected to the database.");
                     }

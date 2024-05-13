@@ -3,7 +3,6 @@ package application;
 import javafx.scene.control.Button;
 
 public class Items {
-    private String ItemID;
     private String ItemBrand;
     private String ItemName;
     private String Categories;
@@ -13,8 +12,7 @@ public class Items {
     private String Quantity;
     private Button AddToCartBtn;
 
-    public Items(String itemID, String itemBrand, String itemName, String categories, String description, String SRP, String clearancePrice, String quantity) {
-        ItemID = itemID;
+    public Items(String itemBrand, String itemName, String categories, String description, String SRP, String clearancePrice, String quantity) {
         ItemBrand = itemBrand;
         ItemName = itemName;
         Categories = categories;
@@ -27,8 +25,6 @@ public class Items {
     }
 
     
-    
-    
     //GETTERS since pag walang getters dito, di ma reretrieve yung data from POS Controller
     //Need ni PropretyValueFactory ung getters ng kada Variables para ma akses 
     public Button getAddToCartBtn() {
@@ -37,10 +33,6 @@ public class Items {
 
     public void setAddToCartBtn(Button addToCartBtn) {
         AddToCartBtn = addToCartBtn;
-    }
-
-    public String getItemID() {
-        return ItemID;
     }
 
     public String getItemBrand() {

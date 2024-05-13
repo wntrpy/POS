@@ -7,9 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-
-import static javafx.application.Application.launch;
-
 public class NXTVMain extends Application{
 // all static variables since this is the Main program that launches everything
 
