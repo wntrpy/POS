@@ -45,6 +45,7 @@
                            <children>
                               <TableView fx:id="SearchItemTV" prefHeight="556.0" prefWidth="808.0" style="-fx-border-width: 0; -fx-border-color: #181717; -fx-background-color: #181717;" stylesheets="@../Styles/style.css">
                                  <columns>
+
                                     <TableColumn id="." fx:id="ItemBrandCol" editable="false" prefWidth="68.0" sortable="false" text="ItemBrand">
                                        <styleClass>
                                           <String fx:value="POSitemList" />
@@ -70,12 +71,15 @@
                                           <String fx:value="POSitemList" />
                                           <String fx:value="POSitemList_Rows" />
                                        </styleClass></TableColumn>
-                                    <TableColumn id="." fx:id="ClearancePriceCol" editable="false" minWidth="0.0" prefWidth="96.0" sortable="false" text="Clearance Price">
+
+                                    <TableColumn id="." fx:id="ClearancePriceCol" editable="false" minWidth="0.0" prefWidth="106.0" sortable="false" text="Clearance Price">
+
                                        <styleClass>
                                           <String fx:value="POSitemList" />
                                           <String fx:value="POSitemList_Rows" />
                                        </styleClass></TableColumn>
-                                    <TableColumn id="." fx:id="QuantityCol" editable="false" minWidth="0.0" prefWidth="99.0" sortable="false" text="Quantity">
+
+                                    <TableColumn id="." fx:id="QuantityCol" editable="false" minWidth="0.0" prefWidth="77.0" sortable="false" text="Quantity">
                                        <styleClass>
                                           <String fx:value="POSitemList" />
                                           <String fx:value="POSitemList_Rows" />

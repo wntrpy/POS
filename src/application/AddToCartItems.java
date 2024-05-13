@@ -40,7 +40,7 @@ public class AddToCartItems {
 
 	public void setNewQtty(int newQtty) {
 	    System.out.println("New Quantity " + newQtty);
-	    this.quantity = String.valueOf(newQtty); //updates yung value ni quantity para don updated din ung ni rereturn ni getterrrr
+	    this.quantity = String.valueOf(newQtty); //updates yung value ni quantity para updated din ung ni rereturn ni getterrrr
 	    quantityTextField.setText(String.valueOf(newQtty)); //set sa quantityTextField yung updated quantity
 	}
 

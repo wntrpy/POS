@@ -111,11 +111,9 @@
     -fx-font-weight: bold;
 }
 
-
 .searchBar {
     -fx-text-fill: white;
 }
-
 
 .changePass{
   -fx-background-color: #202225; /* Semi-transparent white */   /*   0.5 to yung 10 */
@@ -141,4 +139,3 @@
     -fx-border-width: 2px 0 0 0; /* Sets a 2px border width on the upper border */
     -fx-padding: 2px 0 2px 0;
 }
-
