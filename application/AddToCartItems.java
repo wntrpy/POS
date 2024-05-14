@@ -44,10 +44,6 @@ public class AddToCartItems {
 	    quantityTextField.setText(String.valueOf(newQtty)); //set sa quantityTextField yung updated quantity
 	}
 
-	
-	
-	
-
     public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
